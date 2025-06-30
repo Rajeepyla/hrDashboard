@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Employee List</h5>
+      <input
+        type="text"
+        class="form-control w-auto"
+        placeholder="Search employees..."
+        [(ngModel)]="searchText"
+      />
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of filteredEmployees">
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.department }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="{
+                  'bg-success': emp.status === 'Active',
+                  'bg-warning': emp.status === 'On Leave',
+                  'bg-secondary': emp.status === 'Inactive'
+                }"
+              >
+                {{ emp.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

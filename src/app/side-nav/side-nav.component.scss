@@ -1,0 +1,33 @@
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  transition: width 0.3s ease;
+  background-color: #212529;
+
+  .nav-link {
+    padding: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #343a40;
+    }
+
+    &.active {
+      background-color: #0d6efd;
+      color: #fff;
+    }
+  }
+
+  &.collapsed {
+    width: 80px;
+
+    .brand,
+    span {
+      display: none !important;
+    }
+
+    .nav-link {
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+
+.d-flex.flex-column.min-vh-100 {
+  min-height: 100vh;
+}
+
+
+.flex-grow-1.d-flex.flex-column {
+  flex: 1;
+  min-height: 0;
+}
+
+
+.flex-grow-1.d-flex.flex-column > main {
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+
+app-footer {
+  display: block;
+  flex-shrink: 0;
+}
+
+
+footer.bg-dark {
+  background-color: #343a40 !important;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+footer.bg-dark a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer.bg-dark a:hover {
+  color: #fff;
+  text-decoration: underline;
+}

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header d-flex flex-column flex-md-row justify-content-between gap-2 align-items-md-center">
+      <h5 class="mb-0">Employee Attendance</h5>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="selectedDate"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by name..."
+          [(ngModel)]="searchText"
+        />
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of filteredData">
+            <td>{{ entry.name }}</td>
+            <td>{{ entry.date }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="{
+                  'bg-success': entry.status === 'Present',
+                  'bg-warning': entry.status === 'Late',
+                  'bg-danger': entry.status === 'Absent',
+                  'bg-info': entry.status === 'On Leave'
+                }"
+              >
+                {{ entry.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

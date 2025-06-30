@@ -1,0 +1,14 @@
+<nav class="sidebar bg-dark text-white p-3" [class.collapsed]="isCollapsed">
+  <div class="brand mb-4" *ngIf="!isCollapsed">
+    <h4 class="mb-0">HR Panel</h4>
+  </div>
+
+  <ul class="nav flex-column">
+    <li *ngFor="let item of navItems" class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" [routerLink]="item.route" routerLinkActive="active">
+        <i [class]="item.icon"></i>
+        <span *ngIf="!isCollapsed" class="ms-2">{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

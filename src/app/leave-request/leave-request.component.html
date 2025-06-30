@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+      <h5 class="mb-0">Leave Requests</h5>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by name..."
+          [(ngModel)]="searchText"
+        />
+        <select class="form-select" [(ngModel)]="selectedStatus">
+          <option value="">All Statuses</option>
+          <option>Pending</option>
+          <option>Approved</option>
+          <option>Rejected</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Leave Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let req of filteredRequests">
+            <td>{{ req.name }}</td>
+            <td>{{ req.type }}</td>
+            <td>{{ req.from }}</td>
+            <td>{{ req.to }}</td>
+            <td>{{ req.reason }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="{
+                  'bg-warning': req.status === 'Pending',
+                  'bg-success': req.status === 'Approved',
+                  'bg-danger': req.status === 'Rejected'
+                }"
+              >
+                {{ req.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

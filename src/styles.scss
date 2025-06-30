@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+app-footer {
+  height: 10vh;      /* 10% of viewport height */
+  flex-shrink: 0;    /* prevent shrinking */
+  display: block;    /* ensure block behavior */
+  padding: 0 20px;   /* optional padding */
+  background-color: #f8f9fa; /* optional styling */
+  font-size: 14px;   /* optional font size */
+}
